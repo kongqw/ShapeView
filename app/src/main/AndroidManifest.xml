@@ -22,6 +22,42 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <activity
+            android:name=".TestShapeButtonActivity"
+            android:exported="false"
+            android:label="ShapeButton" />
+
+        <activity
+            android:name=".TestShapeConstraintLayoutActivity"
+            android:exported="false"
+            android:label="ShapeConstraintLayout" />
+
+        <activity
+            android:name=".TestShapeEditTextActivity"
+            android:exported="false"
+            android:label="ShapeEditText" />
+
+        <activity
+            android:name=".TestShapeImageButtonActivity"
+            android:exported="false"
+            android:label="ShapeImageButton" />
+
+        <activity
+            android:name=".TestShapeImageViewActivity"
+            android:exported="false"
+            android:label="ShapeImageView" />
+
+        <activity
+            android:name=".TestShapeTextViewActivity"
+            android:exported="false"
+            android:label="ShapeTextView" />
+
+        <activity
+            android:name=".TestShapeViewActivity"
+            android:exported="false"
+            android:label="ShapeView" />
     </application>
 
 </manifest>

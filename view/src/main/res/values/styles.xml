@@ -1,69 +1,257 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+
     <!-- 类型 -->
     <attr name="cornerType" format="enum">
-        <enum name="rectangle" value="0" />
-        <enum name="top" value="1" />
-        <enum name="left" value="2" />
-        <enum name="right" value="3" />
-        <enum name="bottom" value="4" />
+        <enum name="top" value="0" />
+        <enum name="left" value="1" />
+        <enum name="right" value="2" />
+        <enum name="bottom" value="3" />
+        <enum name="rectangle" value="4" />
         <enum name="circle" value="5" />
     </attr>
     <!--  圆角  -->
     <attr name="cornerRadius" format="dimension" />
 
-    <!-- CustomCorner -->
-    <declare-styleable name="CustomCorner">
-        <!-- 圆角类型 -->
-        <attr name="cornerType" />
-        <!-- 圆角大小 -->
-        <attr name="cornerRadius" />
-    </declare-styleable>
+
+    <!-- 字体颜色 -->
+    <attr name="textColor" format="color" />
+    <!-- 按下颜色 -->
+    <attr name="textPressedColor" format="color" />
+    <!-- 不可用颜色 -->
+    <attr name="textDisabledColor" format="color" />
 
 
-    <!-- 类型 -->
-    <attr name="backgroundColorType" format="enum">
-        <enum name="solid" value="0" />
-        <enum name="gradient" value="1" />
-    </attr>
     <!-- 渐变颜色方向 -->
     <attr name="backgroundColorOrientation" format="enum">
         <enum name="horizontal" value="0" />
         <enum name="vertical" value="1" />
     </attr>
-    <!-- CustomBackground -->
-    <declare-styleable name="CustomBackground">
-        <!-- 背景类型 -->
-        <attr name="backgroundColorType" />
-        <!-- 背景类型 -->
+    <!-- 默认背景色 -->
+    <attr name="backgroundColors" format="string" />
+    <!-- 按下背景色 -->
+    <attr name="backgroundPressedColors" format="string" />
+    <!-- 不可用背景色 -->
+    <attr name="backgroundDisabledColors" format="string" />
+
+
+    <!-- stroke 宽度 -->
+    <attr name="strokeWidth" format="dimension" />
+    <attr name="strokePressedWidth" format="dimension" />
+    <attr name="strokeDisabledWidth" format="dimension" />
+    <!-- stroke 颜色 -->
+    <attr name="strokeColor" format="color" />
+    <attr name="strokePressedColor" format="color" />
+    <attr name="strokeDisabledColor" format="color" />
+<!--    &lt;!&ndash; stroke 间隙 &ndash;&gt;-->
+<!--    <attr name="dashWidth" format="dimension" />-->
+<!--    &lt;!&ndash; stroke 间隙 &ndash;&gt;-->
+<!--    <attr name="dashGap" format="dimension" />-->
+
+
+    <!-- ShapeButton -->
+    <declare-styleable name="ShapeButton">
+        <attr name="cornerType" />
+        <attr name="cornerRadius" />
+
+        <attr name="textColor" />
+        <attr name="textPressedColor" />
+        <attr name="textDisabledColor" />
+
         <attr name="backgroundColorOrientation" />
-        <!-- 默认背景色 -->
-        <attr name="backgroundColor1" format="color" />
-        <attr name="backgroundColor2" format="color" />
-        <attr name="backgroundColor3" format="color" />
-        <attr name="backgroundColor4" format="color" />
-        <attr name="backgroundColor5" format="color" />
-        <!-- 按下背景色 -->
-        <attr name="backgroundPressColor1" format="color" />
-        <attr name="backgroundPressColor2" format="color" />
-        <attr name="backgroundPressColor3" format="color" />
-        <attr name="backgroundPressColor4" format="color" />
-        <attr name="backgroundPressColor5" format="color" />
-        <!-- 不可用背景色 -->
-        <attr name="backgroundDisableColor1" format="color" />
-        <attr name="backgroundDisableColor2" format="color" />
-        <attr name="backgroundDisableColor3" format="color" />
-        <attr name="backgroundDisableColor4" format="color" />
-        <attr name="backgroundDisableColor5" format="color" />
+        <attr name="backgroundColors" />
+        <attr name="backgroundPressedColors" />
+        <attr name="backgroundDisabledColors" />
+
+        <attr name="strokeWidth" />
+        <attr name="strokePressedWidth" />
+        <attr name="strokeDisabledWidth" />
+        <attr name="strokeColor" />
+        <attr name="strokePressedColor" />
+        <attr name="strokeDisabledColor" />
     </declare-styleable>
 
-    <!-- CustomGradientTextColor -->
-    <declare-styleable name="CustomGradientTextColor">
-        <!-- 按下颜色 -->
-        <attr name="pressColor" format="color" />
-        <!-- 不可用颜色 -->
-        <attr name="disableColor" format="color" />
+    <!-- ShapeEditText -->
+    <declare-styleable name="ShapeEditText">
+        <attr name="cornerType" />
+        <attr name="cornerRadius" />
+
+        <attr name="textColor" />
+        <attr name="textPressedColor" />
+        <attr name="textDisabledColor" />
+
+        <attr name="backgroundColorOrientation" />
+        <attr name="backgroundColors" />
+        <attr name="backgroundPressedColors" />
+        <attr name="backgroundDisabledColors" />
+
+        <attr name="strokeWidth" />
+        <attr name="strokePressedWidth" />
+        <attr name="strokeDisabledWidth" />
+        <attr name="strokeColor" />
+        <attr name="strokePressedColor" />
+        <attr name="strokeDisabledColor" />
+    </declare-styleable>
+
+    <!-- ShapeImageButton -->
+    <declare-styleable name="ShapeImageButton">
+        <attr name="cornerType" />
+        <attr name="cornerRadius" />
+
+        <attr name="textColor" />
+        <attr name="textPressedColor" />
+        <attr name="textDisabledColor" />
+
+        <attr name="backgroundColorOrientation" />
+        <attr name="backgroundColors" />
+        <attr name="backgroundPressedColors" />
+        <attr name="backgroundDisabledColors" />
+
+        <attr name="strokeWidth" />
+        <attr name="strokePressedWidth" />
+        <attr name="strokeDisabledWidth" />
+        <attr name="strokeColor" />
+        <attr name="strokePressedColor" />
+        <attr name="strokeDisabledColor" />
+    </declare-styleable>
+
+    <!-- ShapeImageView -->
+    <declare-styleable name="ShapeImageView">
+        <attr name="cornerType" />
+        <attr name="cornerRadius" />
+
+        <attr name="textColor" />
+        <attr name="textPressedColor" />
+        <attr name="textDisabledColor" />
+
+        <attr name="backgroundColorOrientation" />
+        <attr name="backgroundColors" />
+        <attr name="backgroundPressedColors" />
+        <attr name="backgroundDisabledColors" />
+
+        <attr name="strokeWidth" />
+        <attr name="strokePressedWidth" />
+        <attr name="strokeDisabledWidth" />
+        <attr name="strokeColor" />
+        <attr name="strokePressedColor" />
+        <attr name="strokeDisabledColor" />
+    </declare-styleable>
+
+    <!-- ShapeTextView -->
+    <declare-styleable name="ShapeTextView">
+        <attr name="cornerType" />
+        <attr name="cornerRadius" />
+
+        <attr name="textColor" />
+        <attr name="textPressedColor" />
+        <attr name="textDisabledColor" />
+
+        <attr name="backgroundColorOrientation" />
+        <attr name="backgroundColors" />
+        <attr name="backgroundPressedColors" />
+        <attr name="backgroundDisabledColors" />
+
+        <attr name="strokeWidth" />
+        <attr name="strokePressedWidth" />
+        <attr name="strokeDisabledWidth" />
+        <attr name="strokeColor" />
+        <attr name="strokePressedColor" />
+        <attr name="strokeDisabledColor" />
+    </declare-styleable>
+
+    <!-- ShapeView -->
+    <declare-styleable name="ShapeView">
+        <attr name="cornerType" />
+        <attr name="cornerRadius" />
+
+        <attr name="textColor" />
+        <attr name="textPressedColor" />
+        <attr name="textDisabledColor" />
+
+        <attr name="backgroundColorOrientation" />
+        <attr name="backgroundColors" />
+        <attr name="backgroundPressedColors" />
+        <attr name="backgroundDisabledColors" />
+
+        <attr name="strokeWidth" />
+        <attr name="strokePressedWidth" />
+        <attr name="strokeDisabledWidth" />
+        <attr name="strokeColor" />
+        <attr name="strokePressedColor" />
+        <attr name="strokeDisabledColor" />
+    </declare-styleable>
+
+    <!-- ShapeConstraintLayout -->
+    <declare-styleable name="ShapeConstraintLayout">
+        <attr name="cornerType" />
+        <attr name="cornerRadius" />
+
+        <attr name="backgroundColorOrientation" />
+        <attr name="backgroundColors" />
+        <attr name="backgroundPressedColors" />
+        <attr name="backgroundDisabledColors" />
+
+        <attr name="strokeWidth" />
+        <attr name="strokePressedWidth" />
+        <attr name="strokeDisabledWidth" />
+        <attr name="strokeColor" />
+        <attr name="strokePressedColor" />
+        <attr name="strokeDisabledColor" />
+    </declare-styleable>
+
+    <!-- ShapeFrameLayout -->
+    <declare-styleable name="ShapeFrameLayout">
+        <attr name="cornerType" />
+        <attr name="cornerRadius" />
+
+        <attr name="backgroundColorOrientation" />
+        <attr name="backgroundColors" />
+        <attr name="backgroundPressedColors" />
+        <attr name="backgroundDisabledColors" />
+
+        <attr name="strokeWidth" />
+        <attr name="strokePressedWidth" />
+        <attr name="strokeDisabledWidth" />
+        <attr name="strokeColor" />
+        <attr name="strokePressedColor" />
+        <attr name="strokeDisabledColor" />
+    </declare-styleable>
+
+    <!-- ShapeLinearLayout -->
+    <declare-styleable name="ShapeLinearLayout">
+        <attr name="cornerType" />
+        <attr name="cornerRadius" />
+
+        <attr name="backgroundColorOrientation" />
+        <attr name="backgroundColors" />
+        <attr name="backgroundPressedColors" />
+        <attr name="backgroundDisabledColors" />
+
+        <attr name="strokeWidth" />
+        <attr name="strokePressedWidth" />
+        <attr name="strokeDisabledWidth" />
+        <attr name="strokeColor" />
+        <attr name="strokePressedColor" />
+        <attr name="strokeDisabledColor" />
+    </declare-styleable>
+
+    <!-- ShapeRelativeLayout -->
+    <declare-styleable name="ShapeRelativeLayout">
+        <attr name="cornerType" />
+        <attr name="cornerRadius" />
+
+        <attr name="backgroundColorOrientation" />
+        <attr name="backgroundColors" />
+        <attr name="backgroundPressedColors" />
+        <attr name="backgroundDisabledColors" />
+
+        <attr name="strokeWidth" />
+        <attr name="strokePressedWidth" />
+        <attr name="strokeDisabledWidth" />
+        <attr name="strokeColor" />
+        <attr name="strokePressedColor" />
+        <attr name="strokeDisabledColor" />
     </declare-styleable>
 
 

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.kongqw.view.ShapeButton
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="渐变带边框"
+
+            app:backgroundColorOrientation="horizontal"
+            app:backgroundColors="#987654,#00000000,#987654,#987654"
+            app:backgroundDisabledColors="#AAAAAA,#987654"
+
+            app:backgroundPressedColors="#00000000,#987654"
+            app:cornerRadius="10dp"
+            app:cornerType="circle"
+            app:strokeColor="#000000"
+
+            app:strokeDisabledColor="#00FF00"
+            app:strokeDisabledWidth="3dp"
+            app:strokePressedColor="#FF00FF"
+            app:strokePressedWidth="10dp"
+
+            app:strokeWidth="3dp"
+            app:textColor="#FFFF00"
+
+            app:textDisabledColor="#FF0000"
+            app:textPressedColor="#ABCDEF" />
+
+        <com.kongqw.view.ShapeButton
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="纯色"
+
+            app:cornerType="rectangle"
+            app:cornerRadius="10dp"
+
+            app:backgroundColorOrientation="horizontal"
+            app:backgroundColors="#987654"
+            app:backgroundPressedColors="#00000000,#987654"
+            app:backgroundDisabledColors="#AAAAAA,#987654"
+
+            app:strokeDisabledColor="#00FF00"
+            app:strokeDisabledWidth="3dp"
+            app:strokePressedColor="#FF00FF"
+            app:strokePressedWidth="10dp"
+
+            app:strokeWidth="3dp"
+            app:textColor="#00FF00"
+
+            app:textDisabledColor="#FF0000"
+            app:textPressedColor="#ABCDEF" />
+
+
+        <com.kongqw.view.ShapeButton
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="圆形"
+
+            app:cornerType="circle"
+            app:cornerRadius="10dp"
+
+            app:backgroundColorOrientation="horizontal"
+            app:backgroundColors="#987654,#ffff00"
+            app:backgroundPressedColors="#00000000,#987654"
+            app:backgroundDisabledColors="#AAAAAA,#987654"
+
+            app:strokeDisabledColor="#ffFFff"
+            app:strokeDisabledWidth="3dp"
+            app:strokePressedColor="#FF00FF"
+            app:strokePressedWidth="10dp"
+
+            app:strokeWidth="5dp"
+            app:strokeColor="#123456"
+
+            app:textColor="#ffFFff"
+            app:textDisabledColor="#FF0000"
+            app:textPressedColor="#ABCDEF" />
+
+
+        <com.kongqw.view.ShapeButton
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="只有边框"
+            style="?android:attr/borderlessButtonStyle"
+
+            app:cornerType="rectangle"
+            app:cornerRadius="25dp"
+
+            app:backgroundColorOrientation="horizontal"
+            app:backgroundColors=""
+
+            app:strokeWidth="5dp"
+            app:strokeColor="#123456"
+
+            app:textColor="#000000"
+            app:textDisabledColor="#FF0000"
+            app:textPressedColor="#ABCDEF" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</ScrollView>

@@ -1,4 +1,4 @@
-package com.kongqw.view.helper.enums
+package com.kongqw.view.enums
 
 enum class BackgroundColorOrientation(orientation: Int) {
     // 水平方向

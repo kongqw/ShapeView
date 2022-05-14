@@ -12,189 +12,138 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <com.kongqw.view.ShapeTextView
-            android:id="@+id/stv1"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:background="#123456"
-            android:gravity="center"
-            android:text="ShapeTextView"
-            app:backgroundColor1="#0F0000"
-            app:backgroundColor2="#FF0000"
-            app:backgroundColor3="#FF00ff"
-            app:backgroundColor4="#0FF0ff"
-            app:backgroundColor5="#66Ff00"
-            app:backgroundColorOrientation="horizontal"
-            app:backgroundDisableColor1="#AAAAAA"
-            app:backgroundDisableColor2="#987654"
-            app:backgroundPressColor1="#888888"
-            app:cornerRadius="10dp"
-            app:cornerType="circle" />
-
-
-        <com.kongqw.view.ShapeTextView
-            android:id="@+id/stv2"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:background="#123456"
-            android:clickable="false"
-            android:gravity="center"
-            android:text="ShapeTextView"
-            app:backgroundColor1="@android:color/holo_green_light"
-            app:backgroundColor2="#FF0000"
-            app:backgroundColorOrientation="vertical"
-            app:backgroundDisableColor1="#AAAAAA"
-            app:backgroundDisableColor2="#00ff00"
-            app:backgroundPressColor1="@android:color/darker_gray"
-            app:cornerRadius="10dp"
-            app:cornerType="left" />
-
-        <com.kongqw.view.ShapeTextView
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:background="#000000"
-            android:gravity="center"
-            android:text="ShapeTextViewSha"
-            android:textSize="30sp"
-            app:cornerRadius="10dp"
-            app:cornerType="right"
-            android:textColor="#00FFFF"
-            app:pressColor="#FF0000" />
-
-        <com.kongqw.view.ShapeTextView
+        <com.kongqw.view.ShapeButton
+            android:id="@+id/sbtn_shape_button"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
-            android:background="#AAAAAA"
-
-            android:clickable="true"
-            android:enabled="true"
-
-            android:text="ShapeTextShapeTextShapeTextShapeTextShapeTextShapeText"
-
-            android:textColor="#123456"
-            android:textSize="30sp"
+            android:layout_marginEnd="20dp"
+            android:text="ShapeButton"
+            android:textSize="15sp"
+            app:backgroundColors="#FBA8EB,#FF1C60"
+            app:backgroundDisabledColors="#333333"
+            app:backgroundPressedColors="#AAAAAA"
             app:cornerRadius="10dp"
-            app:cornerType="right"
-            app:disableColor="#FF0000"
-            app:pressColor="#987654" />
+            app:strokeColor="@android:color/holo_blue_bright"
+            app:strokeWidth="2dp"
+            app:textColor="#FFFFFF"
+            app:textDisabledColor="#00FF00"
+            app:textPressedColor="#FF0000" />
 
         <com.kongqw.view.ShapeButton
+            android:id="@+id/sbtn_shape_edit_text"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_margin="20dp"
-            android:enabled="false"
-
-            android:text="确定"
-
-            android:textColor="#FFFFFF"
-
-            app:backgroundColor1="#0F0000"
-            app:backgroundColor2="#FF0000"
-
-            app:backgroundDisableColor1="#AAAAAA"
-
-            app:backgroundPressColor1="#666666"
-            app:backgroundPressColor2="#AAAAAA"
-
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:text="ShapeEditText"
+            android:textSize="15sp"
+            app:backgroundColors="#FBA8EB,#FF1C60"
+            app:backgroundDisabledColors="#333333"
+            app:backgroundPressedColors="#AAAAAA"
             app:cornerRadius="10dp"
-
-            app:cornerType="circle"
-            app:pressColor="#FF0000" />
-
-        <com.kongqw.view.ShapeTextView
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginTop="10dp"
-            android:background="#000000"
-            android:gravity="center"
-            android:text="ShapeText"
-            android:textSize="30sp"
-            app:cornerRadius="10dp"
-            app:cornerType="right"
-            android:textColor="#00FFFF"
-            app:pressColor="#FF0000" />
-
-        <com.kongqw.view.ShapeTextView
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:background="#123456"
-            android:gravity="center"
-            android:text="ShapeTextView"
-            app:cornerRadius="10dp"
-            app:cornerType="top" />
-
-        <com.kongqw.view.ShapeTextView
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:background="#123456"
-            android:gravity="center"
-            android:text="ShapeTextView"
-            app:cornerRadius="10dp"
-            app:cornerType="bottom" />
-
-        <com.kongqw.view.ShapeTextView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:background="#123456"
-            android:text="ShapeTextView"
-            app:cornerType="circle" />
-
-        <com.kongqw.view.ShapeEditText
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:background="#AAAAAA"
-            android:hint="请输入"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            app:cornerRadius="200dp"
-            app:cornerType="rectangle" />
-
-        <com.kongqw.view.ShapeView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="#FF0000"
-            app:cornerRadius="200dp"
-            app:cornerType="rectangle" />
-
-        <com.kongqw.view.ShapeView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="#FF0000"
-            app:cornerRadius="200dp"
-            app:cornerType="top" />
-
-        <androidx.appcompat.widget.AppCompatCheckBox
-            android:id="@+id/cb"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="禁用下面的按钮" />
+            app:strokeColor="@android:color/holo_blue_bright"
+            app:strokeWidth="2dp"
+            app:textColor="#FFFFFF"
+            app:textDisabledColor="#00FF00"
+            app:textPressedColor="#FF0000" />
 
         <com.kongqw.view.ShapeButton
-            android:id="@+id/shape_button"
+            android:id="@+id/sbtn_shape_image_button"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_margin="20dp"
-            android:enabled="true"
-            android:text="按钮"
-            app:backgroundColor1="#0F0000"
-            app:backgroundColor2="#FF0000"
-            app:backgroundColor3="#FF00ff"
-            app:backgroundColor4="#0FF0ff"
-            app:backgroundColor5="#66Ff00"
-            app:backgroundColorOrientation="horizontal"
-            app:backgroundDisableColor1="#AAAAAA"
-            app:backgroundDisableColor2="#987654"
-            app:backgroundPressColor1="#888888"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:text="ShapeImageButton"
+            android:textSize="15sp"
+            app:backgroundColors="#FBA8EB,#FF1C60"
+            app:backgroundDisabledColors="#333333"
+            app:backgroundPressedColors="#AAAAAA"
             app:cornerRadius="10dp"
-            app:cornerType="circle" />
+            app:strokeColor="@android:color/holo_blue_bright"
+            app:strokeWidth="2dp"
+            app:textColor="#FFFFFF"
+            app:textDisabledColor="#00FF00"
+            app:textPressedColor="#FF0000" />
+
+        <com.kongqw.view.ShapeButton
+            android:id="@+id/sbtn_shape_image_view"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:text="ShapeImageView"
+            android:textSize="15sp"
+            app:backgroundColors="#FBA8EB,#FF1C60"
+            app:backgroundDisabledColors="#333333"
+            app:backgroundPressedColors="#AAAAAA"
+            app:cornerRadius="10dp"
+            app:strokeColor="@android:color/holo_blue_bright"
+            app:strokeWidth="2dp"
+            app:textColor="#FFFFFF"
+            app:textDisabledColor="#00FF00"
+            app:textPressedColor="#FF0000" />
+
+        <com.kongqw.view.ShapeButton
+            android:id="@+id/sbtn_shape_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:text="ShapeTextView"
+            android:textSize="15sp"
+            app:backgroundColors="#FBA8EB,#FF1C60"
+            app:backgroundDisabledColors="#333333"
+            app:backgroundPressedColors="#AAAAAA"
+            app:cornerRadius="10dp"
+            app:strokeColor="@android:color/holo_blue_bright"
+            app:strokeWidth="2dp"
+            app:textColor="#FFFFFF"
+            app:textDisabledColor="#00FF00"
+            app:textPressedColor="#FF0000" />
+
+        <com.kongqw.view.ShapeButton
+            android:id="@+id/sbtn_shape_view"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:text="ShapeView"
+            android:textSize="15sp"
+            app:backgroundColors="#FBA8EB,#FF1C60"
+            app:backgroundDisabledColors="#333333"
+            app:backgroundPressedColors="#AAAAAA"
+            app:cornerRadius="10dp"
+            app:strokeColor="@android:color/holo_blue_bright"
+            app:strokeWidth="2dp"
+            app:textColor="#FFFFFF"
+            app:textDisabledColor="#00FF00"
+            app:textPressedColor="#FF0000" />
+
+        <com.kongqw.view.ShapeButton
+            android:id="@+id/sbtn_shape_constraint_layout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:text="ShapeConstraintLayout"
+            android:textSize="15sp"
+            app:backgroundColors="#FBA8EB,#FF1C60"
+            app:backgroundDisabledColors="#333333"
+            app:backgroundPressedColors="#AAAAAA"
+            app:cornerRadius="10dp"
+            app:strokeColor="@android:color/holo_blue_bright"
+            app:strokeWidth="2dp"
+            app:textColor="#FFFFFF"
+            app:textDisabledColor="#00FF00"
+            app:textPressedColor="#FF0000" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.kongqw.view.layout.ShapeConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+
+            app:backgroundColorOrientation="horizontal"
+            app:backgroundColors="#987654,#00000000,#987654,#987654"
+
+            app:cornerRadius="10dp"
+            app:cornerType="top">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#123456" />
+
+        </com.kongqw.view.layout.ShapeConstraintLayout>
+
+        <com.kongqw.view.layout.ShapeFrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+
+            app:backgroundColorOrientation="horizontal"
+            app:backgroundColors="#987654,#00000000,#987654,#987654"
+
+            app:cornerRadius="10dp"
+            app:cornerType="left">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#987654" />
+
+        </com.kongqw.view.layout.ShapeFrameLayout>
+
+        <com.kongqw.view.layout.ShapeLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+
+            app:backgroundColorOrientation="horizontal"
+            app:backgroundColors="#987654,#00000000,#987654,#987654"
+
+            app:cornerRadius="10dp"
+            app:cornerType="right">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FEDCBA" />
+
+        </com.kongqw.view.layout.ShapeLinearLayout>
+
+        <com.kongqw.view.layout.ShapeRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="30dp"
+
+            app:backgroundColorOrientation="horizontal"
+            app:backgroundColors="#987654,#00000000,#987654,#987654"
+
+            app:cornerRadius="10dp"
+            app:cornerType="bottom">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ABCDEF" />
+
+        </com.kongqw.view.layout.ShapeRelativeLayout>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</ScrollView>
