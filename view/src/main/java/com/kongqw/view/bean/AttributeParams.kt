@@ -15,7 +15,7 @@ class AttributeParams {
     var cornerType: CornerType = CornerType.RECTANGLE
 
     // 圆角大小
-    var cornerRadius: Int = 0
+    var cornerRadius: Float = 0f
 
     /*
      * 字体颜色相关属性
@@ -50,9 +50,9 @@ class AttributeParams {
     /*
      * 背景颜色相关属性
      ********************************************************************************************************************************************/
-    var strokeWidth: Int? = null
-    var strokePressedWidth: Int? = null
-    var strokeDisabledWidth: Int? = null
+    var strokeWidth: Float? = null
+    var strokePressedWidth: Float? = null
+    var strokeDisabledWidth: Float? = null
     var strokeColor: Int? = null
     var strokePressedColor: Int? = null
     var strokeDisabledColor: Int? = null

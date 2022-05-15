@@ -36,7 +36,7 @@ object AttributeHelper {
                 }
             }
             // 圆角
-            attributeParams.cornerRadius = getDimensionPixelSize(iAttributeParams.onCornerRadiusIndex(), 0)
+            attributeParams.cornerRadius = getDimensionPixelSize(iAttributeParams.onCornerRadiusIndex(), 0).toFloat()
             /*
              * 获取字体颜色
              ********************************************************************************************************************************************/
@@ -101,7 +101,7 @@ object AttributeHelper {
                 try {
                     colors.add(Color.parseColor(color))
                 } catch (e: Exception) {
-                    e.printStackTrace()
+                    // e.printStackTrace()
                 }
             }
             when (colors.size) {
@@ -123,9 +123,9 @@ object AttributeHelper {
         }
     }
 
-    private fun getDimensionPixelSizeOrThrow(typedArray: TypedArray, index: Int): Int? {
+    private fun getDimensionPixelSizeOrThrow(typedArray: TypedArray, index: Int): Float? {
         return try {
-            typedArray.getDimensionPixelSizeOrThrow(index)
+            typedArray.getDimensionPixelSizeOrThrow(index).toFloat()
         } catch (e: Exception) {
             Log.i("StyleHelper", "getDimensionPixelSizeOrThrow   error   ${e.message}")
             null

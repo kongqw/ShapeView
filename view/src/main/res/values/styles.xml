@@ -99,10 +99,6 @@
         <attr name="cornerType" />
         <attr name="cornerRadius" />
 
-        <attr name="textColor" />
-        <attr name="textPressedColor" />
-        <attr name="textDisabledColor" />
-
         <attr name="backgroundColorOrientation" />
         <attr name="backgroundColors" />
         <attr name="backgroundPressedColors" />
@@ -120,10 +116,6 @@
     <declare-styleable name="ShapeImageView">
         <attr name="cornerType" />
         <attr name="cornerRadius" />
-
-        <attr name="textColor" />
-        <attr name="textPressedColor" />
-        <attr name="textDisabledColor" />
 
         <attr name="backgroundColorOrientation" />
         <attr name="backgroundColors" />
@@ -164,10 +156,6 @@
     <declare-styleable name="ShapeView">
         <attr name="cornerType" />
         <attr name="cornerRadius" />
-
-        <attr name="textColor" />
-        <attr name="textPressedColor" />
-        <attr name="textDisabledColor" />
 
         <attr name="backgroundColorOrientation" />
         <attr name="backgroundColors" />

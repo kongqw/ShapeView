@@ -24,25 +24,27 @@ object ViewHelper {
                 val width = view?.width ?: 0
                 val height = view?.height ?: 0
 
+                val cornerRadius = attributeParams.cornerRadius
+
                 when (attributeParams.cornerType) {
                     // default 全角
                     CornerType.RECTANGLE -> rect.set(0, 0, width, height)
                     // top
-                    CornerType.TOP -> rect.set(0, 0, width, height + attributeParams.cornerRadius)
+                    CornerType.TOP -> rect.set(0, 0, width, height + cornerRadius.toInt())
                     // left
-                    CornerType.LEFT -> rect.set(0, 0, width + attributeParams.cornerRadius, height)
+                    CornerType.LEFT -> rect.set(0, 0, width + cornerRadius.toInt(), height)
                     // right
-                    CornerType.RIGHT -> rect.set(0 - attributeParams.cornerRadius, 0, width, height)
+                    CornerType.RIGHT -> rect.set(0 - cornerRadius.toInt(), 0, width, height)
                     // bottom
-                    CornerType.BOTTOM -> rect.set(0, 0 - attributeParams.cornerRadius, width, height)
+                    CornerType.BOTTOM -> rect.set(0, 0 - cornerRadius.toInt(), width, height)
                     // 圆
                     CornerType.CIRCLE -> {
                         rect.set(0, 0, width, height)
-                        attributeParams.cornerRadius = if (height < width) width / 2 else height / 2
+                        attributeParams.cornerRadius = if (height < width) width.toFloat() / 2 else height.toFloat() / 2
                         Log.i("StyleHelper", "makeViewOutlineProvider AttributeParams.cornerRadius = ${attributeParams.cornerRadius}")
                     }
                 }
-                outline?.setRoundRect(rect, attributeParams.cornerRadius.toFloat())
+                outline?.setRoundRect(rect, attributeParams.cornerRadius)
             }
         }
     }
@@ -84,21 +86,19 @@ object ViewHelper {
         }
     }
 
-    fun initView(view: View, attributeParams: AttributeParams) {
-        attributeParams.isEnabled = view.isEnabled
+    private fun initCorner(view: View, attributeParams: AttributeParams){
         if (attributeParams.cornerType == CornerType.CIRCLE) {
             if (view.width < view.height) {
-                attributeParams.cornerRadius = view.height / 2
+                attributeParams.cornerRadius = view.height.toFloat() / 2
             } else {
-                attributeParams.cornerRadius = view.width / 2
+                attributeParams.cornerRadius = view.width.toFloat() / 2
             }
         }
+    }
 
-        attributeParams.mSystemBackgroundDrawable = view.background
+    fun initView(view: View, attributeParams: AttributeParams) {
+        initCorner(view, attributeParams)
         initBackground(view, attributeParams)
-//        if (view is TextView) {
-//            attributeParams.textColor = view.currentTextColor
-//        }
         initTextColor(view, attributeParams)
     }
 
@@ -160,7 +160,7 @@ object ViewHelper {
             }
             view.background = GradientDrawable(orientation, customBackgroundColors.toIntArray()).apply {
 
-                val strokeWidth: Int = when (action) {
+                val strokeWidth: Float = when (action) {
                     Action.NORMAL -> attributeParams.strokeWidth
                     Action.PRESSED -> attributeParams.strokePressedWidth ?: attributeParams.strokeWidth
                     Action.DISABLED -> attributeParams.strokeDisabledWidth ?: attributeParams.strokeWidth
@@ -173,11 +173,11 @@ object ViewHelper {
                 } ?: return@apply
 
 
-                this.setStroke(strokeWidth, strokeColor, 0f, 0f)
+                this.setStroke(strokeWidth.toInt(), strokeColor, 0f, 0f)
                 Log.i("StyleHelper", "AttributeParams.mCornerRadius = ${attributeParams.cornerRadius}")
 
                 this.shape = GradientDrawable.RECTANGLE
-                val toFloat = attributeParams.cornerRadius.toFloat()
+                val toFloat = attributeParams.cornerRadius
                 // 左上
                 // this.cornerRadii = floatArrayOf(toFloat, toFloat, 0f, 0f, 0f, 0f, 0f, 0f)
                 // 右上

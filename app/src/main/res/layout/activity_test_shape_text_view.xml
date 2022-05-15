@@ -77,6 +77,7 @@
             android:gravity="center"
             android:text="圆形"
 
+            android:enabled="false"
             app:cornerType="circle"
             app:cornerRadius="10dp"
 
@@ -121,6 +122,39 @@
             app:textDisabledColor="#FF0000"
             app:textPressedColor="#ABCDEF" />
 
+
+
+        <com.kongqw.view.ShapeTextView
+            android:id="@+id/stv_test"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="渐变带边框"
+            android:clickable="true"
+            android:focusable="true"
+
+            app:backgroundColorOrientation="horizontal"
+            app:backgroundColors="#987654,#00000000,#987654,#987654"
+            app:backgroundDisabledColors="#AAAAAA,#987654"
+
+            app:backgroundPressedColors="#00000000,#987654"
+            app:cornerRadius="10dp"
+            app:cornerType="circle"
+            app:strokeColor="#000000"
+
+            app:strokeDisabledColor="#00FF00"
+            app:strokeDisabledWidth="3dp"
+            app:strokePressedColor="#FF00FF"
+            app:strokePressedWidth="10dp"
+
+            app:strokeWidth="3dp"
+            app:textColor="#FFFF00"
+
+            app:textDisabledColor="#FF0000"
+            app:textPressedColor="#ABCDEF" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 </ScrollView>
