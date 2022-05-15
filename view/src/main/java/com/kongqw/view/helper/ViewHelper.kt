@@ -94,6 +94,7 @@ object ViewHelper {
             }
         }
 
+        attributeParams.mSystemBackgroundDrawable = view.background
         initBackground(view, attributeParams)
 //        if (view is TextView) {
 //            attributeParams.textColor = view.currentTextColor
@@ -145,16 +146,19 @@ object ViewHelper {
     private fun setBackground(view: View, attributeParams: AttributeParams?, action: Action) {
         attributeParams ?: return
 
-        when (action) {
+        val customBackgroundColors = when (action) {
             Action.NORMAL -> attributeParams.backgroundColors
             Action.PRESSED -> attributeParams.backgroundPressedColors
             Action.DISABLED -> attributeParams.backgroundDisabledColors
-        }?.also { colors ->
+        }
+        if(null == customBackgroundColors){
+            view.background = attributeParams.mSystemBackgroundDrawable
+        } else {
             val orientation = when (attributeParams.backgroundColorOrientation) {
                 BackgroundColorOrientation.HORIZONTAL -> GradientDrawable.Orientation.LEFT_RIGHT
                 BackgroundColorOrientation.VERTICAL -> GradientDrawable.Orientation.TOP_BOTTOM
             }
-            view.background = GradientDrawable(orientation, colors.toIntArray()).apply {
+            view.background = GradientDrawable(orientation, customBackgroundColors.toIntArray()).apply {
 
                 val strokeWidth: Int = when (action) {
                     Action.NORMAL -> attributeParams.strokeWidth

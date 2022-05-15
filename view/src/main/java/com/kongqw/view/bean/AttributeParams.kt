@@ -1,5 +1,6 @@
 package com.kongqw.view.bean
 
+import android.graphics.drawable.Drawable
 import com.kongqw.view.enums.BackgroundColorOrientation
 import com.kongqw.view.enums.CornerType
 
@@ -31,6 +32,8 @@ class AttributeParams {
     /*
      * 背景颜色相关属性
      ********************************************************************************************************************************************/
+    // 系统背景设置
+    var mSystemBackgroundDrawable : Drawable? = null
     // 背景渐变色方向，默认水平
     var backgroundColorOrientation: BackgroundColorOrientation = BackgroundColorOrientation.HORIZONTAL
 

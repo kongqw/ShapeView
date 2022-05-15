@@ -42,6 +42,10 @@ class MainActivity : AppCompatActivity() {
             TestShapeConstraintLayoutActivity.startActivity(this)
         }
 
+//        mViewBinding.testtv.setOnClickListener {
+//            mViewBinding.testtv.text = "老长了老长了老长了老长了老长了老长了老长了老长了老长了老长了老长了"
+//        }
+
 //
 //        mViewBinding.cb.setOnCheckedChangeListener { compoundButton, b ->
 //            mViewBinding.shapeButton.isEnabled = !b

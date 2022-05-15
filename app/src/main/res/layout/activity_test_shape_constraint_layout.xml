@@ -11,22 +11,26 @@
         android:orientation="vertical">
 
         <com.kongqw.view.layout.ShapeConstraintLayout
+            android:id="@+id/scl1"
             android:layout_width="match_parent"
             android:layout_height="100dp"
+            android:clickable="true"
+            android:focusable="true"
             android:layout_marginStart="30dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="30dp"
+            android:background="#123456"
 
             app:backgroundColorOrientation="horizontal"
-            app:backgroundColors="#987654,#00000000,#987654,#987654"
+            app:backgroundPressedColors="#888888"
 
             app:cornerRadius="10dp"
             app:cornerType="top">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#123456" />
+<!--            <View-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:background="#123456" />-->
 
         </com.kongqw.view.layout.ShapeConstraintLayout>
 
