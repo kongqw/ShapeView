@@ -26,7 +26,9 @@ class TestShapeTextViewActivity : AppCompatActivity() {
         mViewBinding = ActivityTestShapeTextViewBinding.inflate(layoutInflater)
         setContentView(mViewBinding.root)
 
+        mViewBinding.stvTest.setOnClickListener {
 
+        }
         mViewBinding.stvTest.apply {
 
             setCornerType(CornerType.TOP)
