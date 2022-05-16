@@ -48,6 +48,7 @@ class ShapeTextView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) :
         ViewHelper.setOnTouchListener(this, mAttributeParams)
         mAttributeParams.isEnabled = isEnabled
         mAttributeParams.mSystemBackgroundDrawable = background
+        mAttributeParams.mSystemCurrentTextColor = currentTextColor
         clipToOutline = true
     }
 

@@ -20,6 +20,9 @@ class AttributeParams {
     /*
      * 字体颜色相关属性
      ********************************************************************************************************************************************/
+    // 系统字体颜色设置
+    var mSystemCurrentTextColor : Int? = null
+
     // 默认字体颜色
     var textColor: Int? = null
 
@@ -34,6 +37,7 @@ class AttributeParams {
      ********************************************************************************************************************************************/
     // 系统背景设置
     var mSystemBackgroundDrawable : Drawable? = null
+
     // 背景渐变色方向，默认水平
     var backgroundColorOrientation: BackgroundColorOrientation = BackgroundColorOrientation.HORIZONTAL
 
@@ -46,7 +50,6 @@ class AttributeParams {
     // 不可用背景色
     var backgroundDisabledColors: ArrayList<Int>? = null
 
-
     /*
      * 背景颜色相关属性
      ********************************************************************************************************************************************/
@@ -56,14 +59,4 @@ class AttributeParams {
     var strokeColor: Int? = null
     var strokePressedColor: Int? = null
     var strokeDisabledColor: Int? = null
-
-    /*
-        <attr name="strokeWidth" format="dimension" />
-    <attr name="strokePressedWidth" format="dimension" />
-    <attr name="strokeDisabledWidth" format="dimension" />
-    <!-- stroke 颜色 -->
-    <attr name="strokeColor" format="color" />
-    <attr name="strokePressedColor" format="color" />
-    <attr name="strokeDisabledColor" format="color" />
-     */
 }

@@ -48,6 +48,7 @@ class ShapeButton(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : A
         ViewHelper.setOnTouchListener(this, mAttributeParams)
         mAttributeParams.isEnabled = isEnabled
         mAttributeParams.mSystemBackgroundDrawable = background
+        mAttributeParams.mSystemCurrentTextColor = currentTextColor
         clipToOutline = true
     }
 

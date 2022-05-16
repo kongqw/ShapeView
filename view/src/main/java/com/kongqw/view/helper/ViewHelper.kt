@@ -3,7 +3,6 @@ package com.kongqw.view.helper
 import android.graphics.Outline
 import android.graphics.Rect
 import android.graphics.drawable.GradientDrawable
-import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewOutlineProvider
@@ -41,7 +40,7 @@ object ViewHelper {
                     CornerType.CIRCLE -> {
                         rect.set(0, 0, width, height)
                         attributeParams.cornerRadius = if (height < width) width.toFloat() / 2 else height.toFloat() / 2
-                        Log.i("StyleHelper", "makeViewOutlineProvider AttributeParams.cornerRadius = ${attributeParams.cornerRadius}")
+                        // Log.i("StyleHelper", "makeViewOutlineProvider AttributeParams.cornerRadius = ${attributeParams.cornerRadius}")
                     }
                 }
                 outline?.setRoundRect(rect, attributeParams.cornerRadius)
@@ -59,12 +58,14 @@ object ViewHelper {
 
                 when (motionEvent?.action) {
                     MotionEvent.ACTION_DOWN -> {
-                        Log.i("StyleHelper", "MotionEvent.ACTION_DOWN")
-                        pressBackground(view, attributeParams)
-                        pressTextColor(view, attributeParams)
+                        // Log.i("StyleHelper", "MotionEvent.ACTION_DOWN")
+                        // pressBackground(view, attributeParams)
+                        setBackground(view, attributeParams, Action.PRESSED)
+                        // pressTextColor(view, attributeParams)
+                        setTextColor(view, attributeParams, Action.PRESSED)
                     }
                     MotionEvent.ACTION_MOVE -> {
-                        Log.i("StyleHelper", "MotionEvent.ACTION_MOVE")
+                        // Log.i("StyleHelper", "MotionEvent.ACTION_MOVE")
                     }
 //                MotionEvent.ACTION_UP -> {
 //                    Log.i("StyleHelper", "MotionEvent.ACTION_UP  v.isLongClickable = ${v.isLongClickable}")
@@ -76,7 +77,7 @@ object ViewHelper {
 //                    Log.i("StyleHelper", "MotionEvent.ACTION_CANCEL")
 //                }
                     MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
-                        Log.i("StyleHelper", "MotionEvent.ACTION_CANCEL")
+                        // Log.i("StyleHelper", "MotionEvent.ACTION_CANCEL")
                         initBackground(view, attributeParams)
                         initTextColor(view, attributeParams)
                     }
@@ -86,7 +87,7 @@ object ViewHelper {
         }
     }
 
-    private fun initCorner(view: View, attributeParams: AttributeParams){
+    private fun initCorner(view: View, attributeParams: AttributeParams) {
         if (attributeParams.cornerType == CornerType.CIRCLE) {
             if (view.width < view.height) {
                 attributeParams.cornerRadius = view.height.toFloat() / 2
@@ -110,7 +111,7 @@ object ViewHelper {
     }
 
     private fun initBackground(view: View, attributeParams: AttributeParams) {
-        Log.i("StyleHelper", "isClickable    ${view.isClickable}")
+        // Log.i("StyleHelper", "isClickable    ${view.isClickable}")
         if (attributeParams.isEnabled) {
             // 设置背景色
             setBackground(view, attributeParams, Action.NORMAL)
@@ -123,24 +124,13 @@ object ViewHelper {
 
     private fun initTextColor(view: View, attributeParams: AttributeParams) {
         if (view !is TextView) return
-
-        Log.i("StyleHelper", "currentTextColor = ${view.currentTextColor}")
-
+        // Log.i("StyleHelper", "currentTextColor = ${view.currentTextColor}")
         if (attributeParams.isEnabled) {
-            attributeParams.textColor?.apply {
-                view.setTextColor(this)
-            }
+            setTextColor(view, attributeParams, Action.NORMAL)
         } else {
             // 被禁用
-            // 设置背景色
-            attributeParams.textDisableColor?.apply {
-                view.setTextColor(this)
-            }
+            setTextColor(view, attributeParams, Action.DISABLED)
         }
-    }
-
-    private fun pressBackground(view: View, attributeParams: AttributeParams?) {
-        setBackground(view, attributeParams, Action.PRESSED)
     }
 
     private fun setBackground(view: View, attributeParams: AttributeParams?, action: Action) {
@@ -151,7 +141,7 @@ object ViewHelper {
             Action.PRESSED -> attributeParams.backgroundPressedColors
             Action.DISABLED -> attributeParams.backgroundDisabledColors
         }
-        if(null == customBackgroundColors){
+        if (null == customBackgroundColors) {
             view.background = attributeParams.mSystemBackgroundDrawable
         } else {
             val orientation = when (attributeParams.backgroundColorOrientation) {
@@ -174,7 +164,7 @@ object ViewHelper {
 
 
                 this.setStroke(strokeWidth.toInt(), strokeColor, 0f, 0f)
-                Log.i("StyleHelper", "AttributeParams.mCornerRadius = ${attributeParams.cornerRadius}")
+                // Log.i("StyleHelper", "AttributeParams.mCornerRadius = ${attributeParams.cornerRadius}")
 
                 this.shape = GradientDrawable.RECTANGLE
                 val toFloat = attributeParams.cornerRadius
@@ -199,13 +189,17 @@ object ViewHelper {
         }
     }
 
-
-    private fun pressTextColor(view: View, attributeParams: AttributeParams?) {
+    private fun setTextColor(view: View, attributeParams: AttributeParams?, action: Action) {
         if (view !is TextView) return
         attributeParams ?: return
-        // 被按下
-        attributeParams.textPressColor?.apply {
-            view.setTextColor(this)
+        val textColor = when (action) {
+            Action.NORMAL -> attributeParams.textColor
+            Action.PRESSED -> attributeParams.textPressColor
+            Action.DISABLED -> attributeParams.textDisableColor
+        } ?: attributeParams.mSystemCurrentTextColor
+
+        textColor?.apply {
+            view.setTextColor(textColor)
         }
     }
 }
