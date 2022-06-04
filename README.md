@@ -24,7 +24,7 @@ Step 2. Add the dependency
 
 ``` gradle
 dependencies {
-	implementation 'com.github.kongqw:ShapeView:1.1.4'
+	implementation 'com.github.kongqw:ShapeView:1.1.5'
 }
 ```
 
