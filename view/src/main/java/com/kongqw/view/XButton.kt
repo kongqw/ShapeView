@@ -14,7 +14,7 @@ import com.kongqw.view.interfaces.*
 import com.kongqw.view.util.ColorUtils
 import com.kongqw.view.util.GrayModeUtils
 
-class XButton(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : AppCompatButton(context, attrs, defStyleAttr), IGrayMode, ICorner, IBackground, ITextColor {
+open class XButton(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : AppCompatButton(context, attrs, defStyleAttr), IGrayMode, ICorner, IBackground, ITextColor {
 
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, android.R.attr.buttonStyle)
 

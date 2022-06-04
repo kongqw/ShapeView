@@ -17,7 +17,7 @@ import com.kongqw.view.interfaces.IGrayMode
 import com.kongqw.view.util.ColorUtils
 import com.kongqw.view.util.GrayModeUtils
 
-class XView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : View(context, attrs, defStyleAttr), IGrayMode, ICorner, IBackground {
+open class XView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : View(context, attrs, defStyleAttr), IGrayMode, ICorner, IBackground {
 
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
 

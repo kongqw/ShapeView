@@ -18,7 +18,7 @@ import com.kongqw.view.interfaces.IGrayMode
 import com.kongqw.view.util.ColorUtils
 import com.kongqw.view.util.GrayModeUtils
 
-class XConstraintLayout(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : ConstraintLayout(context, attrs, defStyleAttr), IGrayMode, ICorner, IBackground {
+open class XConstraintLayout(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : ConstraintLayout(context, attrs, defStyleAttr), IGrayMode, ICorner, IBackground {
 
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
 

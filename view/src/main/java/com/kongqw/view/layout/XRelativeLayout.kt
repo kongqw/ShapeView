@@ -18,7 +18,7 @@ import com.kongqw.view.interfaces.IGrayMode
 import com.kongqw.view.util.ColorUtils
 import com.kongqw.view.util.GrayModeUtils
 
-class XRelativeLayout(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : RelativeLayout(context, attrs, defStyleAttr), IGrayMode, ICorner, IBackground {
+open class XRelativeLayout(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : RelativeLayout(context, attrs, defStyleAttr), IGrayMode, ICorner, IBackground {
 
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
 

@@ -18,7 +18,7 @@ import com.kongqw.view.interfaces.IGrayMode
 import com.kongqw.view.util.ColorUtils
 import com.kongqw.view.util.GrayModeUtils
 
-class XFrameLayout(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : FrameLayout(context, attrs, defStyleAttr), IGrayMode, ICorner, IBackground {
+open class XFrameLayout(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : FrameLayout(context, attrs, defStyleAttr), IGrayMode, ICorner, IBackground {
 
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
 
