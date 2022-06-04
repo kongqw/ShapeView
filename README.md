@@ -24,7 +24,7 @@ Step 2. Add the dependency
 
 ``` gradle
 dependencies {
-	implementation 'com.github.kongqw:ShapeView:1.1.3'
+	implementation 'com.github.kongqw:ShapeView:1.1.4'
 }
 ```
 
@@ -34,19 +34,19 @@ dependencies {
 
 包含控件：
 
-- ShapeButton（AppCompatButton）
-- ShapeEditText（AppCompatEditText）
-- ShapeImageButton（AppCompatImageButton）
-- ShapeImageView（AppCompatImageView）
-- ShapeTextView（AppCompatTextView）
-- ShapeView（View）
+- XButton（AppCompatButton）
+- XEditText（AppCompatEditText）
+- XImageButton（AppCompatImageButton）
+- XImageView（AppCompatImageView）
+- XTextView（AppCompatTextView）
+- XView（View）
 
 包含布局：
 
-- ShapeConstraintLayout（ConstraintLayout）
-- ShapeFrameLayout（FrameLayout）
-- ShapeLinearLayout（LinearLayout）
-- ShapeRelativeLayout（RelativeLayout）
+- XConstraintLayout（ConstraintLayout）
+- XFrameLayout（FrameLayout）
+- XLinearLayout（LinearLayout）
+- XRelativeLayout（RelativeLayout）
 
 如果你要在这些控件上使用Shape图形，编写圆角、渐变色、Stroke、以及按下、不可用状态的样式，那么这个库可以更简洁方便的满足需求。
 
@@ -56,6 +56,7 @@ dependencies {
 
 | 自定义属性 | 说明  | 类型  | 举例  |
 | ---- | ---- |  ---- | ---- |
+| isGrayMode | 黑白模式 |  boolean | app:isGrayMode="true" |
 | cornerType | 圆角 | enum | app:cornerType="top"<br/>app:cornerType="left"<br/>app:cornerType="right"<br/>app:cornerType="bottom"<br/>app:cornerType="rectangle"<br/>app:cornerType="circle" |
 | cornerRadius | 圆角 | dimension | app:cornerRadius="10dp" |
 | textColor | 字体颜色 | color | app:textColor="#FFFF00" |
@@ -72,6 +73,12 @@ dependencies {
 | strokePressedColor | 按下Stroke颜色 | color | app:strokePressedColor="#FF00FF" |
 | strokeDisabledColor | 不可用Stroke颜色 | color | app:strokeDisabledColor="#00FF00" |
 
+
+全局黑白化
+
+``` kitlin
+GrayMode.isGrayMode(applicationContext, true)
+```
 
 效果图：
 

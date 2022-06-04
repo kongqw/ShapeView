@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <com.kongqw.view.ShapeView
+        <com.kongqw.view.XView
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginStart="30dp"
@@ -34,7 +34,7 @@
             app:strokePressedWidth="10dp"
             app:strokeWidth="3dp" />
 
-        <com.kongqw.view.ShapeView
+        <com.kongqw.view.XView
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginStart="30dp"
@@ -50,7 +50,7 @@
             app:cornerType="right" />
 
 
-        <com.kongqw.view.ShapeView
+        <com.kongqw.view.XView
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginStart="30dp"
@@ -74,7 +74,7 @@
             app:strokeWidth="5dp" />
 
 
-        <com.kongqw.view.ShapeView
+        <com.kongqw.view.XView
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginStart="30dp"

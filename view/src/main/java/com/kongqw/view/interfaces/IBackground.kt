@@ -4,7 +4,7 @@ import androidx.annotation.ColorInt
 import com.kongqw.view.enums.BackgroundColorOrientation
 
 
-interface IBackground {
+internal interface IBackground {
 
     fun setBackgroundColorOrientation(orientation: BackgroundColorOrientation)
 

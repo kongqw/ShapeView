@@ -5,6 +5,7 @@ import android.content.res.TypedArray
 import android.graphics.Color
 import android.util.AttributeSet
 import android.util.Log
+import androidx.core.content.res.getBooleanOrThrow
 import androidx.core.content.res.getColorOrThrow
 import androidx.core.content.res.getDimensionPixelSizeOrThrow
 import androidx.core.content.res.getStringOrThrow
@@ -13,13 +14,18 @@ import com.kongqw.view.enums.BackgroundColorOrientation
 import com.kongqw.view.enums.CornerType
 import com.kongqw.view.interfaces.IAttributeParams
 
-object AttributeHelper {
+internal object AttributeHelper {
 
 
     fun obtainStyledAttributes(context: Context?, attrs: AttributeSet?, iAttributeParams: IAttributeParams): AttributeParams {
         val attributeParams = AttributeParams()
         // 字体颜色
         context?.obtainStyledAttributes(attrs, iAttributeParams.onAttrsId())?.apply {
+            /*
+             * 黑白模式
+             ********************************************************************************************************************************************/
+            getBooleanOrThrow(this, iAttributeParams.isGrayMode())?.apply { attributeParams.isGrayMode = this }
+
             /*
              * 获取圆角
              ********************************************************************************************************************************************/
@@ -128,6 +134,16 @@ object AttributeHelper {
             typedArray.getDimensionPixelSizeOrThrow(index).toFloat()
         } catch (e: Exception) {
             Log.i("StyleHelper", "getDimensionPixelSizeOrThrow   error   ${e.message}")
+            null
+        }
+    }
+
+    private fun getBooleanOrThrow(typedArray: TypedArray, index: Int?): Boolean? {
+        index ?: return null
+        return try {
+            typedArray.getBooleanOrThrow(index)
+        } catch (e: Exception) {
+            Log.i("StyleHelper", "getBooleanOrThrow   error   ${e.message}")
             null
         }
     }

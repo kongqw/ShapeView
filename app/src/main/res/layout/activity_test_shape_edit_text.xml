@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <com.kongqw.view.ShapeEditText
+        <com.kongqw.view.XEditText
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginStart="30dp"
@@ -30,7 +30,7 @@
             app:strokeWidth="3dp"
             app:textColor="#FFFF00" />
 
-        <com.kongqw.view.ShapeEditText
+        <com.kongqw.view.XEditText
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginStart="30dp"
@@ -49,7 +49,7 @@
             app:textColor="#00FF00" />
 
 
-        <com.kongqw.view.ShapeEditText
+        <com.kongqw.view.XEditText
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginStart="30dp"
@@ -70,7 +70,7 @@
             app:textColor="#ffFFff" />
 
 
-        <com.kongqw.view.ShapeEditText
+        <com.kongqw.view.XEditText
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginStart="30dp"

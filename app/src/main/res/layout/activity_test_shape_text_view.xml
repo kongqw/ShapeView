@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <com.kongqw.view.ShapeTextView
+        <com.kongqw.view.XTextView
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginStart="30dp"
@@ -41,7 +41,7 @@
             app:textDisabledColor="#FF0000"
             app:textPressedColor="#ABCDEF" />
 
-        <com.kongqw.view.ShapeTextView
+        <com.kongqw.view.XTextView
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginStart="30dp"
@@ -70,7 +70,7 @@
             app:textPressedColor="#ABCDEF" />
 
 
-        <com.kongqw.view.ShapeTextView
+        <com.kongqw.view.XTextView
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginStart="30dp"
@@ -101,7 +101,7 @@
             app:textPressedColor="#ABCDEF" />
 
 
-        <com.kongqw.view.ShapeTextView
+        <com.kongqw.view.XTextView
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="200dp"
             android:layout_height="50dp"
@@ -125,7 +125,7 @@
             app:textPressedColor="#ABCDEF" />
 
 
-        <com.kongqw.view.ShapeTextView
+        <com.kongqw.view.XTextView
             android:id="@+id/stv_test"
             android:layout_width="200dp"
             android:layout_height="50dp"
@@ -157,7 +157,7 @@
             app:textDisabledColor="#FF0000"
             app:textPressedColor="#ABCDEF" />
 
-        <com.kongqw.view.ShapeTextView
+        <com.kongqw.view.XTextView
             android:layout_width="100dp"
             android:clickable="true"
             android:focusable="true"
@@ -179,7 +179,7 @@
             android:textColor="#123456"
             android:textSize="18sp" />
 
-        <com.kongqw.view.ShapeTextView
+        <com.kongqw.view.XTextView
             android:layout_width="100dp"
             android:clickable="true"
             android:focusable="true"

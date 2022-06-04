@@ -2,7 +2,7 @@ package com.kongqw.view.util
 
 import android.graphics.Color
 
-object ColorUtils {
+internal object ColorUtils {
 
     fun parseColor(colors: String?): ArrayList<Int>? {
         val colorList = ArrayList<Int>()

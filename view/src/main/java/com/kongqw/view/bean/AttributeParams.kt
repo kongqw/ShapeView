@@ -4,9 +4,15 @@ import android.graphics.drawable.Drawable
 import com.kongqw.view.enums.BackgroundColorOrientation
 import com.kongqw.view.enums.CornerType
 
-class AttributeParams {
+internal class AttributeParams {
 
     var isEnabled: Boolean = true
+
+    /*
+     * 黑白模式
+     ********************************************************************************************************************************************/
+    // 是否是黑白模式
+    var isGrayMode: Boolean? = null
 
     /*
      * 圆角属性

@@ -1,9 +1,11 @@
-package com.kongqw.view
+package com.kongqw.view.layout
 
 import android.content.Context
+import android.graphics.Canvas
 import android.util.AttributeSet
-import android.view.View
+import android.widget.LinearLayout
 import androidx.annotation.ColorInt
+import com.kongqw.view.R
 import com.kongqw.view.bean.AttributeParams
 import com.kongqw.view.enums.BackgroundColorOrientation
 import com.kongqw.view.enums.CornerType
@@ -12,36 +14,41 @@ import com.kongqw.view.helper.ViewHelper
 import com.kongqw.view.interfaces.IAttributeParams
 import com.kongqw.view.interfaces.IBackground
 import com.kongqw.view.interfaces.ICorner
+import com.kongqw.view.interfaces.IGrayMode
 import com.kongqw.view.util.ColorUtils
+import com.kongqw.view.util.GrayModeUtils
 
-class ShapeView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : View(context, attrs, defStyleAttr), ICorner, IBackground {
+class XLinearLayout(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : LinearLayout(context, attrs, defStyleAttr), IGrayMode, ICorner, IBackground {
 
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
 
     constructor(context: Context) : this(context, null)
 
     private var mAttributeParams: AttributeParams = AttributeHelper.obtainStyledAttributes(context, attrs, object : IAttributeParams {
-        override fun onAttrsId(): IntArray = R.styleable.ShapeView
+        override fun onAttrsId(): IntArray = R.styleable.XLinearLayout
+        override fun isGrayMode(): Int = R.styleable.XLinearLayout_isGrayMode
 
         override fun onTextColorIndex(): Int? = null
         override fun onTextPressedColorIndex(): Int? = null
         override fun onTextDisableColorIndex(): Int? = null
 
-        override fun onCornerTypeIndex(): Int = R.styleable.ShapeView_cornerType
-        override fun onCornerRadiusIndex(): Int = R.styleable.ShapeView_cornerRadius
+        override fun onCornerTypeIndex(): Int = R.styleable.XLinearLayout_cornerType
+        override fun onCornerRadiusIndex(): Int = R.styleable.XLinearLayout_cornerRadius
 
-        override fun onBackgroundColorOrientationIndex(): Int = R.styleable.ShapeView_backgroundColorOrientation
-        override fun onBackgroundColorsIndex(): Int = R.styleable.ShapeView_backgroundColors
-        override fun onBackgroundPressedColorsIndex(): Int = R.styleable.ShapeView_backgroundPressedColors
-        override fun onBackgroundDisabledIndex(): Int = R.styleable.ShapeView_backgroundDisabledColors
+        override fun onBackgroundColorOrientationIndex(): Int = R.styleable.XLinearLayout_backgroundColorOrientation
+        override fun onBackgroundColorsIndex(): Int = R.styleable.XLinearLayout_backgroundColors
+        override fun onBackgroundPressedColorsIndex(): Int = R.styleable.XLinearLayout_backgroundPressedColors
+        override fun onBackgroundDisabledIndex(): Int = R.styleable.XLinearLayout_backgroundDisabledColors
 
-        override fun onStrokeWidthIndex(): Int = R.styleable.ShapeView_strokeWidth
-        override fun onStrokePressedWidthIndex(): Int = R.styleable.ShapeView_strokePressedWidth
-        override fun onStrokeDisabledWidthIndex(): Int = R.styleable.ShapeView_strokeDisabledWidth
-        override fun onStrokeColorIndex(): Int = R.styleable.ShapeView_strokeColor
-        override fun onStrokePressedColorIndex(): Int = R.styleable.ShapeView_strokePressedColor
-        override fun onStrokeDisabledColorIndex(): Int = R.styleable.ShapeView_strokeDisabledColor
+        override fun onStrokeWidthIndex(): Int = R.styleable.XLinearLayout_strokeWidth
+        override fun onStrokePressedWidthIndex(): Int = R.styleable.XLinearLayout_strokePressedWidth
+        override fun onStrokeDisabledWidthIndex(): Int = R.styleable.XLinearLayout_strokeDisabledWidth
+        override fun onStrokeColorIndex(): Int = R.styleable.XLinearLayout_strokeColor
+        override fun onStrokePressedColorIndex(): Int = R.styleable.XLinearLayout_strokePressedColor
+        override fun onStrokeDisabledColorIndex(): Int = R.styleable.XLinearLayout_strokeDisabledColor
     })
+
+    private val mGrayModeUtils = GrayModeUtils(this, mAttributeParams)
 
     init {
         ViewHelper.setOnTouchListener(this, mAttributeParams)
@@ -179,5 +186,21 @@ class ShapeView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : Vie
     override fun setStrokeDisabledColor(color: Int) {
         mAttributeParams.strokeDisabledColor = color
         ViewHelper.initView(this, mAttributeParams)
+    }
+
+    override fun isGrayMode(isGrayMode: Boolean) {
+        mGrayModeUtils.isGrayMode(isGrayMode)
+    }
+
+    override fun dispatchDraw(canvas: Canvas?) {
+        mGrayModeUtils.saveLayer(canvas)
+        super.dispatchDraw(canvas)
+        mGrayModeUtils.restore(canvas)
+    }
+
+    override fun draw(canvas: Canvas?) {
+        mGrayModeUtils.saveLayer(canvas)
+        super.draw(canvas)
+        mGrayModeUtils.restore(canvas)
     }
 }

@@ -1,7 +1,7 @@
 package com.kongqw.view.interfaces
 
 
-interface ITextColor {
+internal interface ITextColor {
 
     fun setTextDefaultColor(color: Int)
     fun setTextPressedColor(color: Int)

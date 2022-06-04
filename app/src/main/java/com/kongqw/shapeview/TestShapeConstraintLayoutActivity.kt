@@ -32,5 +32,10 @@ class TestShapeConstraintLayoutActivity : AppCompatActivity() {
             Toast.makeText(applicationContext,"scl1 long click",Toast.LENGTH_SHORT).show()
             true
         }
+
+
+        mViewBinding.cbSwitch.setOnCheckedChangeListener { buttonView, isChecked ->
+            mViewBinding.scl1.isGrayMode(isChecked)
+        }
     }
 }

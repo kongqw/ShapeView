@@ -1,6 +1,6 @@
 package com.kongqw.view.enums
 
-enum class Action {
+internal enum class Action {
     NORMAL,
     PRESSED,
     DISABLED

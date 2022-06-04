@@ -3,6 +3,7 @@ package com.kongqw.shapeview
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.kongqw.shapeview.databinding.ActivityMainBinding
+import com.kongqw.view.util.GrayMode
 
 class MainActivity : AppCompatActivity() {
 
@@ -10,6 +11,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // 全局设置黑白模式
+        GrayMode.isGrayMode(applicationContext, false)
+
         mViewBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mViewBinding.root)
 
@@ -37,10 +42,12 @@ class MainActivity : AppCompatActivity() {
         mViewBinding.sbtnShapeView.setOnClickListener {
             TestShapeViewActivity.startActivity(this)
         }
+        mViewBinding.sbtnShapeView.isGrayMode(true)
         // ShapeConstraintLayout
         mViewBinding.sbtnShapeConstraintLayout.setOnClickListener {
             TestShapeConstraintLayoutActivity.startActivity(this)
         }
+        mViewBinding.sbtnShapeConstraintLayout.isGrayMode(false)
 
 //        mViewBinding.testtv.setOnClickListener {
 //            mViewBinding.testtv.text = "老长了老长了老长了老长了老长了老长了老长了老长了老长了老长了老长了"

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!--  是否是黑白模式  -->
+    <attr name="isGrayMode" format="boolean" />
 
     <!-- 类型 -->
     <attr name="cornerType" format="enum">
@@ -44,14 +46,15 @@
     <attr name="strokeColor" format="color" />
     <attr name="strokePressedColor" format="color" />
     <attr name="strokeDisabledColor" format="color" />
-<!--    &lt;!&ndash; stroke 间隙 &ndash;&gt;-->
-<!--    <attr name="dashWidth" format="dimension" />-->
-<!--    &lt;!&ndash; stroke 间隙 &ndash;&gt;-->
-<!--    <attr name="dashGap" format="dimension" />-->
+    <!--    &lt;!&ndash; stroke 间隙 &ndash;&gt;-->
+    <!--    <attr name="dashWidth" format="dimension" />-->
+    <!--    &lt;!&ndash; stroke 间隙 &ndash;&gt;-->
+    <!--    <attr name="dashGap" format="dimension" />-->
 
 
-    <!-- ShapeButton -->
-    <declare-styleable name="ShapeButton">
+    <!-- XButton -->
+    <declare-styleable name="XButton">
+        <attr name="isGrayMode" />
         <attr name="cornerType" />
         <attr name="cornerRadius" />
 
@@ -72,8 +75,9 @@
         <attr name="strokeDisabledColor" />
     </declare-styleable>
 
-    <!-- ShapeEditText -->
-    <declare-styleable name="ShapeEditText">
+    <!-- XEditText -->
+    <declare-styleable name="XEditText">
+        <attr name="isGrayMode" />
         <attr name="cornerType" />
         <attr name="cornerRadius" />
 
@@ -94,8 +98,9 @@
         <attr name="strokeDisabledColor" />
     </declare-styleable>
 
-    <!-- ShapeImageButton -->
-    <declare-styleable name="ShapeImageButton">
+    <!-- XImageButton -->
+    <declare-styleable name="XImageButton">
+        <attr name="isGrayMode" />
         <attr name="cornerType" />
         <attr name="cornerRadius" />
 
@@ -112,8 +117,9 @@
         <attr name="strokeDisabledColor" />
     </declare-styleable>
 
-    <!-- ShapeImageView -->
-    <declare-styleable name="ShapeImageView">
+    <!-- XImageView -->
+    <declare-styleable name="XImageView">
+        <attr name="isGrayMode" />
         <attr name="cornerType" />
         <attr name="cornerRadius" />
 
@@ -130,8 +136,9 @@
         <attr name="strokeDisabledColor" />
     </declare-styleable>
 
-    <!-- ShapeTextView -->
-    <declare-styleable name="ShapeTextView">
+    <!-- XTextView -->
+    <declare-styleable name="XTextView">
+        <attr name="isGrayMode" />
         <attr name="cornerType" />
         <attr name="cornerRadius" />
 
@@ -152,8 +159,9 @@
         <attr name="strokeDisabledColor" />
     </declare-styleable>
 
-    <!-- ShapeView -->
-    <declare-styleable name="ShapeView">
+    <!-- XView -->
+    <declare-styleable name="XView">
+        <attr name="isGrayMode" />
         <attr name="cornerType" />
         <attr name="cornerRadius" />
 
@@ -170,8 +178,10 @@
         <attr name="strokeDisabledColor" />
     </declare-styleable>
 
-    <!-- ShapeConstraintLayout -->
-    <declare-styleable name="ShapeConstraintLayout">
+    <!-- XConstraintLayout -->
+    <declare-styleable name="XConstraintLayout">
+        <attr name="isGrayMode" />
+
         <attr name="cornerType" />
         <attr name="cornerRadius" />
 
@@ -188,8 +198,9 @@
         <attr name="strokeDisabledColor" />
     </declare-styleable>
 
-    <!-- ShapeFrameLayout -->
-    <declare-styleable name="ShapeFrameLayout">
+    <!-- XFrameLayout -->
+    <declare-styleable name="XFrameLayout">
+        <attr name="isGrayMode" />
         <attr name="cornerType" />
         <attr name="cornerRadius" />
 
@@ -206,8 +217,9 @@
         <attr name="strokeDisabledColor" />
     </declare-styleable>
 
-    <!-- ShapeLinearLayout -->
-    <declare-styleable name="ShapeLinearLayout">
+    <!-- XLinearLayout -->
+    <declare-styleable name="XLinearLayout">
+        <attr name="isGrayMode" />
         <attr name="cornerType" />
         <attr name="cornerRadius" />
 
@@ -224,8 +236,9 @@
         <attr name="strokeDisabledColor" />
     </declare-styleable>
 
-    <!-- ShapeRelativeLayout -->
-    <declare-styleable name="ShapeRelativeLayout">
+    <!-- XRelativeLayout -->
+    <declare-styleable name="XRelativeLayout">
+        <attr name="isGrayMode" />
         <attr name="cornerType" />
         <attr name="cornerRadius" />
 

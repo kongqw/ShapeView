@@ -10,11 +10,12 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <com.kongqw.view.layout.ShapeConstraintLayout
+        <com.kongqw.view.layout.XConstraintLayout
             android:id="@+id/scl1"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:clickable="true"
+            app:isGrayMode="true"
             android:focusable="true"
             android:layout_marginStart="30dp"
             android:layout_marginTop="10dp"
@@ -32,9 +33,20 @@
 <!--                android:layout_height="match_parent"-->
 <!--                android:background="#123456" />-->
 
-        </com.kongqw.view.layout.ShapeConstraintLayout>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:src="@mipmap/ic_launcher"
+                android:layout_height="wrap_content"/>
 
-        <com.kongqw.view.layout.ShapeFrameLayout
+        </com.kongqw.view.layout.XConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/cb_switch"
+            android:layout_width="match_parent"
+            android:text="黑白切换"
+            android:layout_height="50dp"/>
+
+        <com.kongqw.view.layout.XFrameLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginStart="30dp"
@@ -52,9 +64,9 @@
                 android:layout_height="match_parent"
                 android:background="#987654" />
 
-        </com.kongqw.view.layout.ShapeFrameLayout>
+        </com.kongqw.view.layout.XFrameLayout>
 
-        <com.kongqw.view.layout.ShapeLinearLayout
+        <com.kongqw.view.layout.XLinearLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginStart="30dp"
@@ -72,9 +84,9 @@
                 android:layout_height="match_parent"
                 android:background="#FEDCBA" />
 
-        </com.kongqw.view.layout.ShapeLinearLayout>
+        </com.kongqw.view.layout.XLinearLayout>
 
-        <com.kongqw.view.layout.ShapeRelativeLayout
+        <com.kongqw.view.layout.XRelativeLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginStart="30dp"
@@ -92,7 +104,7 @@
                 android:layout_height="match_parent"
                 android:background="#ABCDEF" />
 
-        </com.kongqw.view.layout.ShapeRelativeLayout>
+        </com.kongqw.view.layout.XRelativeLayout>
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>

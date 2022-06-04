@@ -1,9 +1,11 @@
 package com.kongqw.view.interfaces
 
 
-interface IAttributeParams {
+internal interface IAttributeParams {
 
     fun onAttrsId(): IntArray
+
+    fun isGrayMode(): Int?
 
     fun onTextColorIndex(): Int?
     fun onTextPressedColorIndex(): Int?

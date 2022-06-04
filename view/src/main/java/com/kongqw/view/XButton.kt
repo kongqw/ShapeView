@@ -1,54 +1,56 @@
-package com.kongqw.view.layout
+package com.kongqw.view
 
 import android.content.Context
+import android.graphics.Canvas
 import android.util.AttributeSet
-import android.widget.RelativeLayout
 import androidx.annotation.ColorInt
-import com.kongqw.view.R
+import androidx.appcompat.widget.AppCompatButton
 import com.kongqw.view.bean.AttributeParams
 import com.kongqw.view.enums.BackgroundColorOrientation
 import com.kongqw.view.enums.CornerType
 import com.kongqw.view.helper.AttributeHelper
 import com.kongqw.view.helper.ViewHelper
-import com.kongqw.view.interfaces.IAttributeParams
-import com.kongqw.view.interfaces.IBackground
-import com.kongqw.view.interfaces.ICorner
+import com.kongqw.view.interfaces.*
 import com.kongqw.view.util.ColorUtils
+import com.kongqw.view.util.GrayModeUtils
 
-class ShapeRelativeLayout(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : RelativeLayout(context, attrs, defStyleAttr), ICorner, IBackground {
+class XButton(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : AppCompatButton(context, attrs, defStyleAttr), IGrayMode, ICorner, IBackground, ITextColor {
 
-    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
+    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, android.R.attr.buttonStyle)
 
     constructor(context: Context) : this(context, null)
 
     private var mAttributeParams: AttributeParams = AttributeHelper.obtainStyledAttributes(context, attrs, object : IAttributeParams {
-        override fun onAttrsId(): IntArray = R.styleable.ShapeRelativeLayout
+        override fun onAttrsId(): IntArray = R.styleable.XButton
+        override fun isGrayMode(): Int = R.styleable.XButton_isGrayMode
 
-        override fun onTextColorIndex(): Int? = null
-        override fun onTextPressedColorIndex(): Int? = null
-        override fun onTextDisableColorIndex(): Int? = null
+        override fun onTextColorIndex(): Int = R.styleable.XButton_textColor
+        override fun onTextPressedColorIndex(): Int = R.styleable.XButton_textPressedColor
+        override fun onTextDisableColorIndex(): Int = R.styleable.XButton_textDisabledColor
 
-        override fun onCornerTypeIndex(): Int = R.styleable.ShapeRelativeLayout_cornerType
-        override fun onCornerRadiusIndex(): Int = R.styleable.ShapeRelativeLayout_cornerRadius
+        override fun onCornerTypeIndex(): Int = R.styleable.XButton_cornerType
+        override fun onCornerRadiusIndex(): Int = R.styleable.XButton_cornerRadius
 
-        override fun onBackgroundColorOrientationIndex(): Int = R.styleable.ShapeRelativeLayout_backgroundColorOrientation
-        override fun onBackgroundColorsIndex(): Int = R.styleable.ShapeRelativeLayout_backgroundColors
-        override fun onBackgroundPressedColorsIndex(): Int = R.styleable.ShapeRelativeLayout_backgroundPressedColors
-        override fun onBackgroundDisabledIndex(): Int = R.styleable.ShapeRelativeLayout_backgroundDisabledColors
+        override fun onBackgroundColorOrientationIndex(): Int = R.styleable.XButton_backgroundColorOrientation
+        override fun onBackgroundColorsIndex(): Int = R.styleable.XButton_backgroundColors
+        override fun onBackgroundPressedColorsIndex(): Int = R.styleable.XButton_backgroundPressedColors
+        override fun onBackgroundDisabledIndex(): Int = R.styleable.XButton_backgroundDisabledColors
 
-        override fun onStrokeWidthIndex(): Int = R.styleable.ShapeRelativeLayout_strokeWidth
-        override fun onStrokePressedWidthIndex(): Int = R.styleable.ShapeRelativeLayout_strokePressedWidth
-        override fun onStrokeDisabledWidthIndex(): Int = R.styleable.ShapeRelativeLayout_strokeDisabledWidth
-        override fun onStrokeColorIndex(): Int = R.styleable.ShapeRelativeLayout_strokeColor
-        override fun onStrokePressedColorIndex(): Int = R.styleable.ShapeRelativeLayout_strokePressedColor
-        override fun onStrokeDisabledColorIndex(): Int = R.styleable.ShapeRelativeLayout_strokeDisabledColor
+        override fun onStrokeWidthIndex(): Int = R.styleable.XButton_strokeWidth
+        override fun onStrokePressedWidthIndex(): Int = R.styleable.XButton_strokePressedWidth
+        override fun onStrokeDisabledWidthIndex(): Int = R.styleable.XButton_strokeDisabledWidth
+        override fun onStrokeColorIndex(): Int = R.styleable.XButton_strokeColor
+        override fun onStrokePressedColorIndex(): Int = R.styleable.XButton_strokePressedColor
+        override fun onStrokeDisabledColorIndex(): Int = R.styleable.XButton_strokeDisabledColor
     })
 
+    private val mGrayModeUtils = GrayModeUtils(this, mAttributeParams)
 
     init {
         ViewHelper.setOnTouchListener(this, mAttributeParams)
         mAttributeParams.isEnabled = isEnabled
         mAttributeParams.mSystemBackgroundDrawable = background
+        mAttributeParams.mSystemCurrentTextColor = currentTextColor
         clipToOutline = true
     }
 
@@ -61,6 +63,21 @@ class ShapeRelativeLayout(context: Context, attrs: AttributeSet?, defStyleAttr: 
     override fun setEnabled(enabled: Boolean) {
         super.setEnabled(enabled)
         ViewHelper.setEnabled(this, mAttributeParams, enabled)
+    }
+
+    override fun setTextDefaultColor(color: Int) {
+        mAttributeParams.textColor = color
+        ViewHelper.initView(this, mAttributeParams)
+    }
+
+    override fun setTextPressedColor(color: Int) {
+        mAttributeParams.textPressColor = color
+        ViewHelper.initView(this, mAttributeParams)
+    }
+
+    override fun setTextDisableColor(color: Int) {
+        mAttributeParams.textDisableColor = color
+        ViewHelper.initView(this, mAttributeParams)
     }
 
     override fun setCornerType(cornerType: CornerType) {
@@ -181,5 +198,21 @@ class ShapeRelativeLayout(context: Context, attrs: AttributeSet?, defStyleAttr: 
     override fun setStrokeDisabledColor(color: Int) {
         mAttributeParams.strokeDisabledColor = color
         ViewHelper.initView(this, mAttributeParams)
+    }
+
+    override fun isGrayMode(isGrayMode: Boolean) {
+        mGrayModeUtils.isGrayMode(isGrayMode)
+    }
+
+    override fun dispatchDraw(canvas: Canvas?) {
+        mGrayModeUtils.saveLayer(canvas)
+        super.dispatchDraw(canvas)
+        mGrayModeUtils.restore(canvas)
+    }
+
+    override fun draw(canvas: Canvas?) {
+        mGrayModeUtils.saveLayer(canvas)
+        super.draw(canvas)
+        mGrayModeUtils.restore(canvas)
     }
 }

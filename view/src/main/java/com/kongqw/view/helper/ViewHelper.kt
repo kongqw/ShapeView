@@ -12,7 +12,7 @@ import com.kongqw.view.enums.Action
 import com.kongqw.view.enums.BackgroundColorOrientation
 import com.kongqw.view.enums.CornerType
 
-object ViewHelper {
+internal object ViewHelper {
 
     fun makeViewOutlineProvider(attributeParams: AttributeParams): ViewOutlineProvider {
         return object : ViewOutlineProvider() {

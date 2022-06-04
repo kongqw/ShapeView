@@ -1,54 +1,56 @@
-package com.kongqw.view.layout
+package com.kongqw.view
 
 import android.content.Context
+import android.graphics.Canvas
 import android.util.AttributeSet
-import android.widget.FrameLayout
 import androidx.annotation.ColorInt
-import com.kongqw.view.R
+import androidx.appcompat.widget.AppCompatEditText
 import com.kongqw.view.bean.AttributeParams
 import com.kongqw.view.enums.BackgroundColorOrientation
 import com.kongqw.view.enums.CornerType
 import com.kongqw.view.helper.AttributeHelper
 import com.kongqw.view.helper.ViewHelper
-import com.kongqw.view.interfaces.IAttributeParams
-import com.kongqw.view.interfaces.IBackground
-import com.kongqw.view.interfaces.ICorner
+import com.kongqw.view.interfaces.*
 import com.kongqw.view.util.ColorUtils
+import com.kongqw.view.util.GrayModeUtils
 
-class ShapeFrameLayout(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : FrameLayout(context, attrs, defStyleAttr), ICorner, IBackground {
+class XEditText(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : AppCompatEditText(context, attrs, defStyleAttr), IGrayMode, ICorner, IBackground, ITextColor {
 
-    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
+    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, android.R.attr.editTextStyle)
 
     constructor(context: Context) : this(context, null)
-    
+
     private var mAttributeParams: AttributeParams = AttributeHelper.obtainStyledAttributes(context, attrs, object : IAttributeParams {
-        override fun onAttrsId(): IntArray = R.styleable.ShapeFrameLayout
+        override fun onAttrsId(): IntArray = R.styleable.XEditText
+        override fun isGrayMode(): Int = R.styleable.XEditText_isGrayMode
 
-        override fun onTextColorIndex(): Int? = null
-        override fun onTextPressedColorIndex(): Int? = null
-        override fun onTextDisableColorIndex(): Int? = null
+        override fun onTextColorIndex(): Int = R.styleable.XEditText_textColor
+        override fun onTextPressedColorIndex(): Int = R.styleable.XEditText_textPressedColor
+        override fun onTextDisableColorIndex(): Int = R.styleable.XEditText_textDisabledColor
 
-        override fun onCornerTypeIndex(): Int = R.styleable.ShapeFrameLayout_cornerType
-        override fun onCornerRadiusIndex(): Int = R.styleable.ShapeFrameLayout_cornerRadius
+        override fun onCornerTypeIndex(): Int = R.styleable.XEditText_cornerType
+        override fun onCornerRadiusIndex(): Int = R.styleable.XEditText_cornerRadius
 
-        override fun onBackgroundColorOrientationIndex(): Int = R.styleable.ShapeFrameLayout_backgroundColorOrientation
-        override fun onBackgroundColorsIndex(): Int = R.styleable.ShapeFrameLayout_backgroundColors
-        override fun onBackgroundPressedColorsIndex(): Int = R.styleable.ShapeFrameLayout_backgroundPressedColors
-        override fun onBackgroundDisabledIndex(): Int = R.styleable.ShapeFrameLayout_backgroundDisabledColors
+        override fun onBackgroundColorOrientationIndex(): Int = R.styleable.XEditText_backgroundColorOrientation
+        override fun onBackgroundColorsIndex(): Int = R.styleable.XEditText_backgroundColors
+        override fun onBackgroundPressedColorsIndex(): Int = R.styleable.XEditText_backgroundPressedColors
+        override fun onBackgroundDisabledIndex(): Int = R.styleable.XEditText_backgroundDisabledColors
 
-        override fun onStrokeWidthIndex(): Int = R.styleable.ShapeFrameLayout_strokeWidth
-        override fun onStrokePressedWidthIndex(): Int = R.styleable.ShapeFrameLayout_strokePressedWidth
-        override fun onStrokeDisabledWidthIndex(): Int = R.styleable.ShapeFrameLayout_strokeDisabledWidth
-        override fun onStrokeColorIndex(): Int = R.styleable.ShapeFrameLayout_strokeColor
-        override fun onStrokePressedColorIndex(): Int = R.styleable.ShapeFrameLayout_strokePressedColor
-        override fun onStrokeDisabledColorIndex(): Int = R.styleable.ShapeFrameLayout_strokeDisabledColor
+        override fun onStrokeWidthIndex(): Int = R.styleable.XEditText_strokeWidth
+        override fun onStrokePressedWidthIndex(): Int = R.styleable.XEditText_strokePressedWidth
+        override fun onStrokeDisabledWidthIndex(): Int = R.styleable.XEditText_strokeDisabledWidth
+        override fun onStrokeColorIndex(): Int = R.styleable.XEditText_strokeColor
+        override fun onStrokePressedColorIndex(): Int = R.styleable.XEditText_strokePressedColor
+        override fun onStrokeDisabledColorIndex(): Int = R.styleable.XEditText_strokeDisabledColor
     })
 
-
+    private val mGrayModeUtils = GrayModeUtils(this, mAttributeParams)
+    
     init {
         ViewHelper.setOnTouchListener(this, mAttributeParams)
         mAttributeParams.isEnabled = isEnabled
         mAttributeParams.mSystemBackgroundDrawable = background
+        mAttributeParams.mSystemCurrentTextColor = currentTextColor
         clipToOutline = true
     }
 
@@ -61,6 +63,21 @@ class ShapeFrameLayout(context: Context, attrs: AttributeSet?, defStyleAttr: Int
     override fun setEnabled(enabled: Boolean) {
         super.setEnabled(enabled)
         ViewHelper.setEnabled(this, mAttributeParams, enabled)
+    }
+
+    override fun setTextDefaultColor(color: Int) {
+        mAttributeParams.textColor = color
+        ViewHelper.initView(this, mAttributeParams)
+    }
+
+    override fun setTextPressedColor(color: Int) {
+        mAttributeParams.textPressColor = color
+        ViewHelper.initView(this, mAttributeParams)
+    }
+
+    override fun setTextDisableColor(color: Int) {
+        mAttributeParams.textDisableColor = color
+        ViewHelper.initView(this, mAttributeParams)
     }
 
     override fun setCornerType(cornerType: CornerType) {
@@ -181,5 +198,21 @@ class ShapeFrameLayout(context: Context, attrs: AttributeSet?, defStyleAttr: Int
     override fun setStrokeDisabledColor(color: Int) {
         mAttributeParams.strokeDisabledColor = color
         ViewHelper.initView(this, mAttributeParams)
+    }
+
+    override fun isGrayMode(isGrayMode: Boolean) {
+        mGrayModeUtils.isGrayMode(isGrayMode)
+    }
+
+    override fun dispatchDraw(canvas: Canvas?) {
+        mGrayModeUtils.saveLayer(canvas)
+        super.dispatchDraw(canvas)
+        mGrayModeUtils.restore(canvas)
+    }
+
+    override fun draw(canvas: Canvas?) {
+        mGrayModeUtils.saveLayer(canvas)
+        super.draw(canvas)
+        mGrayModeUtils.restore(canvas)
     }
 }
